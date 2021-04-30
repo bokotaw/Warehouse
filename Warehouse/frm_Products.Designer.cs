@@ -94,6 +94,7 @@ namespace Warehouse
             // 
             // cbx_Status
             // 
+            this.cbx_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Status.FormattingEnabled = true;
             this.cbx_Status.Items.AddRange(new object[] {
             "Active",

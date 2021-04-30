@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Warehouse
 {
-    public partial class Stock : Form
+    public partial class frm_Stock : Form
     {
-        public Stock()
+        public frm_Stock()
         {
             InitializeComponent();
         }

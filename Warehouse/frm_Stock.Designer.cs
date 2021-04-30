@@ -1,7 +1,7 @@
 ﻿
 namespace Warehouse
 {
-    partial class Stock
+    partial class frm_Stock
     {
         /// <summary>
         /// Required designer variable.
@@ -288,7 +288,7 @@ namespace Warehouse
             // 
             this.erp_Stock.ContainerControl = this;
             // 
-            // Stock
+            // frm_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,7 +311,7 @@ namespace Warehouse
             this.Controls.Add(this.txt_ProductCode);
             this.Controls.Add(this.txt_ProductName);
             this.Controls.Add(this.dtp_StockDate);
-            this.Name = "Stock";
+            this.Name = "frm_Stock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock";
             this.Load += new System.EventHandler(this.Stock_Load);

@@ -44,9 +44,16 @@ namespace Warehouse
 
         private void mst_Stock_Click(object sender, EventArgs e)
         {
-            Stock stk = new Stock();
+            frm_Stock stk = new frm_Stock();
             stk.MdiParent = this;
             stk.Show();
+        }
+
+        private void tsm_ProductList_Click(object sender, EventArgs e)
+        {
+            frm_ProductReport prep = new frm_ProductReport();
+            prep.MdiParent = this;
+            prep.Show();
         }
     }
 }
