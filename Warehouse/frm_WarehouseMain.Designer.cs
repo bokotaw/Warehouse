@@ -100,14 +100,14 @@ namespace Warehouse
             // tsm_ProductList
             // 
             this.tsm_ProductList.Name = "tsm_ProductList";
-            this.tsm_ProductList.Size = new System.Drawing.Size(137, 22);
-            this.tsm_ProductList.Text = "Product List";
+            this.tsm_ProductList.Size = new System.Drawing.Size(154, 22);
+            this.tsm_ProductList.Text = "Product Report";
             // 
             // tsm_StockList
             // 
             this.tsm_StockList.Name = "tsm_StockList";
-            this.tsm_StockList.Size = new System.Drawing.Size(137, 22);
-            this.tsm_StockList.Text = "StockList";
+            this.tsm_StockList.Size = new System.Drawing.Size(154, 22);
+            this.tsm_StockList.Text = "Stock Report";
             // 
             // contextMenuStrip1
             // 
