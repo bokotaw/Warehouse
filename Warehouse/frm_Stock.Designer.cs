@@ -199,6 +199,8 @@ namespace Warehouse
             // dgv_StockView
             // 
             this.dgv_StockView.AllowUserToAddRows = false;
+            this.dgv_StockView.AllowUserToResizeColumns = false;
+            this.dgv_StockView.AllowUserToResizeRows = false;
             this.dgv_StockView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_StockView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_StockView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -210,6 +212,7 @@ namespace Warehouse
             this.clm_Status});
             this.dgv_StockView.Location = new System.Drawing.Point(26, 176);
             this.dgv_StockView.Name = "dgv_StockView";
+            this.dgv_StockView.RowHeadersVisible = false;
             this.dgv_StockView.RowTemplate.Height = 25;
             this.dgv_StockView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_StockView.Size = new System.Drawing.Size(733, 217);

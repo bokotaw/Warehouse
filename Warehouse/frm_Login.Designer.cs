@@ -35,7 +35,6 @@ namespace Warehouse
             this.lbl_Password = new System.Windows.Forms.Label();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
-            this.llbl_ForgetPassword = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // txt_Username
@@ -80,7 +79,7 @@ namespace Warehouse
             // btn_Clear
             // 
             this.btn_Clear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Clear.Location = new System.Drawing.Point(108, 136);
+            this.btn_Clear.Location = new System.Drawing.Point(108, 121);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(75, 23);
             this.btn_Clear.TabIndex = 4;
@@ -90,7 +89,7 @@ namespace Warehouse
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(203, 137);
+            this.btn_Login.Location = new System.Drawing.Point(203, 121);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
             this.btn_Login.TabIndex = 5;
@@ -98,23 +97,12 @@ namespace Warehouse
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
-            // llbl_ForgetPassword
-            // 
-            this.llbl_ForgetPassword.AutoSize = true;
-            this.llbl_ForgetPassword.Location = new System.Drawing.Point(176, 109);
-            this.llbl_ForgetPassword.Name = "llbl_ForgetPassword";
-            this.llbl_ForgetPassword.Size = new System.Drawing.Size(99, 15);
-            this.llbl_ForgetPassword.TabIndex = 6;
-            this.llbl_ForgetPassword.TabStop = true;
-            this.llbl_ForgetPassword.Text = "Forget Password?";
-            // 
             // frm_Login
             // 
             this.AcceptButton = this.btn_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 172);
-            this.Controls.Add(this.llbl_ForgetPassword);
+            this.ClientSize = new System.Drawing.Size(312, 164);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.lbl_Password);
@@ -137,6 +125,5 @@ namespace Warehouse
         private System.Windows.Forms.Label lbl_Password;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Login;
-        private System.Windows.Forms.LinkLabel llbl_ForgetPassword;
     }
 }

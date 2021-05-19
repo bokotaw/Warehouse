@@ -44,6 +44,7 @@ namespace Warehouse
             this.btn_Add = new System.Windows.Forms.Button();
             this.erp_Products = new System.Windows.Forms.ErrorProvider(this.components);
             this.btn_Reset = new System.Windows.Forms.Button();
+            this.btn_addnew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProductView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_Products)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +108,9 @@ namespace Warehouse
             // dgv_ProductView
             // 
             this.dgv_ProductView.AllowUserToAddRows = false;
+            this.dgv_ProductView.AllowUserToResizeColumns = false;
+            this.dgv_ProductView.AllowUserToResizeRows = false;
+            this.dgv_ProductView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgv_ProductView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ProductView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clm_ProductCode,
@@ -114,6 +118,7 @@ namespace Warehouse
             this.clm_Status});
             this.dgv_ProductView.Location = new System.Drawing.Point(12, 120);
             this.dgv_ProductView.Name = "dgv_ProductView";
+            this.dgv_ProductView.RowHeadersVisible = false;
             this.dgv_ProductView.RowTemplate.Height = 25;
             this.dgv_ProductView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ProductView.Size = new System.Drawing.Size(776, 284);
@@ -124,6 +129,7 @@ namespace Warehouse
             // 
             this.clm_ProductCode.HeaderText = "Product Code";
             this.clm_ProductCode.Name = "clm_ProductCode";
+            this.clm_ProductCode.Width = 113;
             // 
             // clm_ProductName
             // 
@@ -135,6 +141,7 @@ namespace Warehouse
             // 
             this.clm_Status.HeaderText = "Status";
             this.clm_Status.Name = "clm_Status";
+            this.clm_Status.Width = 68;
             // 
             // btn_Delete
             // 
@@ -172,11 +179,22 @@ namespace Warehouse
             this.btn_Reset.UseVisualStyleBackColor = true;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
+            // btn_addnew
+            // 
+            this.btn_addnew.Location = new System.Drawing.Point(330, 415);
+            this.btn_addnew.Name = "btn_addnew";
+            this.btn_addnew.Size = new System.Drawing.Size(75, 23);
+            this.btn_addnew.TabIndex = 10;
+            this.btn_addnew.Text = "Add new";
+            this.btn_addnew.UseVisualStyleBackColor = true;
+            this.btn_addnew.Click += new System.EventHandler(this.btn_addnew_Click);
+            // 
             // frm_Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_addnew);
             this.Controls.Add(this.btn_Reset);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Delete);
@@ -215,5 +233,6 @@ namespace Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn clm_Status;
         private System.Windows.Forms.ErrorProvider erp_Products;
         private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.Button btn_addnew;
     }
 }

@@ -58,6 +58,7 @@ namespace Warehouse
             this.dgv_ProRepView.Location = new System.Drawing.Point(12, 99);
             this.dgv_ProRepView.Name = "dgv_ProRepView";
             this.dgv_ProRepView.ReadOnly = true;
+            this.dgv_ProRepView.RowHeadersVisible = false;
             this.dgv_ProRepView.RowTemplate.Height = 25;
             this.dgv_ProRepView.Size = new System.Drawing.Size(755, 463);
             this.dgv_ProRepView.TabIndex = 0;

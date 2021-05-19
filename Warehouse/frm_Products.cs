@@ -182,5 +182,12 @@ namespace Warehouse
         {
             ResetRecords();
         }
+
+        private void btn_addnew_Click(object sender, EventArgs e)
+        {
+            frm_ProductAdd productAdd = new frm_ProductAdd();
+            //productAdd.MdiParent = this;
+            productAdd.Show();
+        }
     }
 }
