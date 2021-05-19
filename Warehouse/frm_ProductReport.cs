@@ -55,6 +55,7 @@ namespace Warehouse
             txt_ProductName.Clear();
             cbx_Status.SelectedIndex = -1;
             txt_ProductCode.Focus();
+            LoadData();
         }
 
         private void txt_ProductCode_KeyPress(object sender, KeyPressEventArgs e)
