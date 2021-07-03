@@ -1,7 +1,7 @@
 ﻿
 namespace Warehouse
 {
-    partial class frm_WarehouseMain
+    partial class FRM_WarehouseMain
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@ namespace Warehouse
             this.mst_MainTop = new System.Windows.Forms.MenuStrip();
             this.mst_Products = new System.Windows.Forms.ToolStripMenuItem();
             this.mst_Stock = new System.Windows.Forms.ToolStripMenuItem();
+            this.mst_Orders = new System.Windows.Forms.ToolStripMenuItem();
             this.mst_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_ProductList = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_StockList = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,7 @@ namespace Warehouse
             this.mst_MainTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mst_Products,
             this.mst_Stock,
+            this.mst_Orders,
             this.mst_Report});
             this.mst_MainTop.Location = new System.Drawing.Point(0, 0);
             this.mst_MainTop.Name = "mst_MainTop";
@@ -76,14 +78,21 @@ namespace Warehouse
             this.mst_Products.Name = "mst_Products";
             this.mst_Products.Size = new System.Drawing.Size(66, 20);
             this.mst_Products.Text = "Products";
-            this.mst_Products.Click += new System.EventHandler(this.mst_Products_Click);
+            this.mst_Products.Click += new System.EventHandler(this.MST_Products_Click);
             // 
             // mst_Stock
             // 
             this.mst_Stock.Name = "mst_Stock";
             this.mst_Stock.Size = new System.Drawing.Size(48, 20);
             this.mst_Stock.Text = "Stock";
-            this.mst_Stock.Click += new System.EventHandler(this.mst_Stock_Click);
+            this.mst_Stock.Click += new System.EventHandler(this.MST_Stock_Click);
+            // 
+            // mst_Orders
+            // 
+            this.mst_Orders.Name = "mst_Orders";
+            this.mst_Orders.Size = new System.Drawing.Size(54, 20);
+            this.mst_Orders.Text = "Orders";
+            this.mst_Orders.Click += new System.EventHandler(this.TSM_Orders_Click);
             // 
             // mst_Report
             // 
@@ -97,17 +106,18 @@ namespace Warehouse
             // tsm_ProductList
             // 
             this.tsm_ProductList.Name = "tsm_ProductList";
-            this.tsm_ProductList.Size = new System.Drawing.Size(154, 22);
+            this.tsm_ProductList.Size = new System.Drawing.Size(180, 22);
             this.tsm_ProductList.Text = "Product Report";
-            this.tsm_ProductList.Click += new System.EventHandler(this.tsm_ProductList_Click);
+            this.tsm_ProductList.Click += new System.EventHandler(this.TSM_ProductList_Click);
             // 
             // tsm_StockList
             // 
             this.tsm_StockList.Name = "tsm_StockList";
-            this.tsm_StockList.Size = new System.Drawing.Size(154, 22);
+            this.tsm_StockList.Size = new System.Drawing.Size(180, 22);
             this.tsm_StockList.Text = "Stock Report";
+            this.tsm_StockList.Click += new System.EventHandler(this.tsm_StockList_Click);
             // 
-            // frm_WarehouseMain
+            // FRM_WarehouseMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,10 +128,10 @@ namespace Warehouse
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mst_MainTop;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "frm_WarehouseMain";
+            this.Name = "FRM_WarehouseMain";
             this.Text = "Warehouse Managnent System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_WarehouseMain_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_WarehouseMain_FormClosing);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.mst_MainTop.ResumeLayout(false);
@@ -139,6 +149,7 @@ namespace Warehouse
         private System.Windows.Forms.ToolStripMenuItem mst_Report;
         private System.Windows.Forms.ToolStripMenuItem tsm_ProductList;
         private System.Windows.Forms.ToolStripMenuItem tsm_StockList;
+        private System.Windows.Forms.ToolStripMenuItem mst_Orders;
     }
 }
 

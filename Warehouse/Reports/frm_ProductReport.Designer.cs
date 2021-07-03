@@ -42,6 +42,7 @@ namespace Warehouse
             this.lbl_ProductName = new System.Windows.Forms.Label();
             this.txt_Status = new System.Windows.Forms.Label();
             this.btn_Export = new System.Windows.Forms.Button();
+            this.sfd_Products = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRepView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +111,7 @@ namespace Warehouse
             this.txt_ProductCode.Name = "txt_ProductCode";
             this.txt_ProductCode.Size = new System.Drawing.Size(125, 25);
             this.txt_ProductCode.TabIndex = 3;
+            this.txt_ProductCode.TextChanged += new System.EventHandler(this.txt_ProductCode_TextChanged);
             this.txt_ProductCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ProductCode_KeyPress);
             // 
             // txt_ProductName
@@ -119,7 +121,7 @@ namespace Warehouse
             this.txt_ProductName.Name = "txt_ProductName";
             this.txt_ProductName.Size = new System.Drawing.Size(125, 25);
             this.txt_ProductName.TabIndex = 4;
-            this.txt_ProductName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ProductName_KeyPress);
+            this.txt_ProductName.TextChanged += new System.EventHandler(this.txt_ProductName_TextChanged);
             // 
             // cbx_Status
             // 
@@ -133,6 +135,7 @@ namespace Warehouse
             this.cbx_Status.Name = "cbx_Status";
             this.cbx_Status.Size = new System.Drawing.Size(146, 25);
             this.cbx_Status.TabIndex = 5;
+            this.cbx_Status.SelectedIndexChanged += new System.EventHandler(this.cbx_Status_SelectedIndexChanged);
             // 
             // lbl_ProductCode
             // 
@@ -174,6 +177,10 @@ namespace Warehouse
             this.btn_Export.UseVisualStyleBackColor = true;
             this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
             // 
+            // svd_Products
+            // 
+            this.sfd_Products.FileOk += new System.ComponentModel.CancelEventHandler(this.svd_Products_FileOk);
+            // 
             // frm_ProductReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -214,5 +221,6 @@ namespace Warehouse
         private System.Windows.Forms.Label lbl_ProductName;
         private System.Windows.Forms.Label txt_Status;
         private System.Windows.Forms.Button btn_Export;
+        private System.Windows.Forms.SaveFileDialog sfd_Products;
     }
 }

@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace Warehouse
 {
-    public partial class frm_WarehouseMain : Form
+    public partial class FRM_WarehouseMain : Form
     {
-        public frm_WarehouseMain()
+        public FRM_WarehouseMain()
         {
             InitializeComponent();
         }
 
         bool close = true;
-        private void frm_WarehouseMain_FormClosing(object sender, FormClosingEventArgs e)
+        private void FRM_WarehouseMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (close)
             {
-                DialogResult dialogResult = MessageBox.Show("Are You sure want to exit?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("Are You sure you want to exit?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     close = false;
@@ -35,25 +35,39 @@ namespace Warehouse
             }
         }
 
-        private void mst_Products_Click(object sender, EventArgs e)
+        private void MST_Products_Click(object sender, EventArgs e)
         {
-            frm_Products pro = new frm_Products();
+            FRM_Products pro = new();
             pro.MdiParent = this;
             pro.Show();
         }
 
-        private void mst_Stock_Click(object sender, EventArgs e)
+        private void MST_Stock_Click(object sender, EventArgs e)
         {
-            frm_Stock stk = new frm_Stock();
+            FRM_Stock stk = new();
             stk.MdiParent = this;
             stk.Show();
         }
 
-        private void tsm_ProductList_Click(object sender, EventArgs e)
+        private void TSM_ProductList_Click(object sender, EventArgs e)
         {
-            frm_ProductReport prep = new frm_ProductReport();
+            frm_ProductReport prep = new();
             prep.MdiParent = this;
             prep.Show();
+        }
+
+        private void TSM_Orders_Click(object sender, EventArgs e)
+        {
+            frm_Orders ord = new();
+            ord.MdiParent = this;
+            ord.Show();
+        }
+
+        private void tsm_StockList_Click(object sender, EventArgs e)
+        {
+            frm_StockReport srep = new();
+            srep.MdiParent = this;
+            srep.Show();
         }
     }
 }

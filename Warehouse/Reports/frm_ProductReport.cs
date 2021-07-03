@@ -21,8 +21,9 @@ namespace Warehouse
 
         public void LoadData()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Warehouse;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            SqlDataAdapter sda = new SqlDataAdapter(@"SELECT * FROM [dbo].[Products]", con);
+            ConnectionClass con = new ConnectionClass();
+            con.OpenCon();
+            SqlDataAdapter sda = new SqlDataAdapter(@"SELECT * FROM [dbo].[Products]", con.Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dgv_ProRepView.Rows.Clear();
@@ -41,6 +42,7 @@ namespace Warehouse
                     dgv_ProRepView.Rows[n].Cells[2].Value = "Deactive";
                 }
             }
+            con.CloseCon();
         }
 
         private void frm_ProductReport_Load(object sender, EventArgs e)
@@ -66,23 +68,48 @@ namespace Warehouse
             }
         }
 
-        private void txt_ProductName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsNumber(e.KeyChar) & (Keys)e.KeyChar != Keys.Back & e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-        }
+       
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Warehouse;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            SqlDataAdapter sda = new SqlDataAdapter(@"SELECT * FROM [dbo].[Products] WHERE [Product_ID] = '"+txt_ProductCode.Text+"'", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
+            ConnectionClass con = new ConnectionClass();
+            con.OpenCon();
+            DataTable dt = new();
+
+            foreach (DataRow item in dt.Rows)
+            {
+                int n = dgv_ProRepView.Rows.Add();
+                dgv_ProRepView.Rows[n].Cells[0].Value = item["Product_ID"].ToString();
+                dgv_ProRepView.Rows[n].Cells[1].Value = item["Product_Name"].ToString();
+                dgv_ProRepView.Rows[n].Cells[2].Value = item["Product_Status"].ToString();
+            }
+
+
+            SqlDataAdapter sda = new();
+            if (txt_ProductCode.Text.Length > 0)
+            {
+                sda = new(@"SELECT * FROM [dbo].[Products] WHERE [Product_ID] LIKE '%" + txt_ProductCode.Text + "%'", con.Connection);
+                sda.Fill(dt);
+            }
+            else if (txt_ProductName.Text.Length > 0)
+            {
+                sda = new(@"SELECT * FROM [dbo].[Products] WHERE [Product_Name] LIKE '%" + txt_ProductName.Text + "%'", con.Connection);
+                sda.Fill(dt);
+            }
+            if (cbx_Status.SelectedIndex == 0)
+            {
+                sda = new(@"SELECT * FROM [dbo].[Products] WHERE [Product_Status] = 1", con.Connection);
+                sda.Fill(dt);
+            }
+            else
+            {
+                sda = new(@"SELECT * FROM [dbo].[Products] WHERE [Product_Status] = 0", con.Connection);
+                sda.Fill(dt);
+            }
+
             dgv_ProRepView.Rows.Clear();
-            
-            foreach(DataRow item in dt.Rows)
+
+            foreach (DataRow item in dt.Rows)
             {
                 int n = dgv_ProRepView.Rows.Add();
                 dgv_ProRepView.Rows[n].Cells[0].Value = item["Product_ID"].ToString();
@@ -96,22 +123,48 @@ namespace Warehouse
                     dgv_ProRepView.Rows[n].Cells[2].Value = "Deactive";
                 }
             }
+            con.CloseCon();
+        }
+
+        private void txt_ProductCode_TextChanged(object sender, EventArgs e)
+        {
+            txt_ProductName.Clear();
+            cbx_Status.SelectedIndex = -1;
+        }
+
+        private void txt_ProductName_TextChanged(object sender, EventArgs e)
+        {
+            txt_ProductCode.Clear();
+            cbx_Status.SelectedIndex = -1;
+        }
+
+        private void cbx_Status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_ProductCode.Clear();
+            txt_ProductName.Clear();
         }
 
         private void btn_Export_Click(object sender, EventArgs e)
         {
+            sfd_Products.ShowDialog();
+        }
+
+        private void svd_Products_FileOk(object sender, CancelEventArgs e)
+        {
+            sfd_Products.Filter = "csv File (.csv)|*.csv";
+            string name = sfd_Products.FileName;     
             string csv = string.Empty;
 
-            foreach(DataGridViewColumn clm in dgv_ProRepView.Columns)
+            foreach (DataGridViewColumn clm in dgv_ProRepView.Columns)
             {
                 csv += clm.HeaderText + ',';
             }
 
             csv += "\r\n";
 
-            foreach(DataGridViewRow row in dgv_ProRepView.Rows)
+            foreach (DataGridViewRow row in dgv_ProRepView.Rows)
             {
-                foreach(DataGridViewCell cell in row.Cells)
+                foreach (DataGridViewCell cell in row.Cells)
                 {
                     csv += cell.Value.ToString().Replace(",", ";") + ',';
                 }
@@ -119,8 +172,7 @@ namespace Warehouse
                 csv += "\r\n";
             }
 
-            string folderPath = "D:\\STUDIA\\";
-            File.WriteAllText(folderPath + "Product Report.csv", csv);
+            File.WriteAllText(name, csv);
         }
     }
 }
